@@ -2,6 +2,8 @@ import BlogCard from "@/components/cards/BlogCard";
 import NoResult from "@/components/shared/NoResult";
 import { Button } from "@/components/ui/button";
 import { getBlogById } from "@/lib/actions/blog.action";
+import { getBlogsByTagIdParams } from "@/lib/actions/tag.action";
+
 import { auth } from "@clerk/nextjs";
 import Link from "next/link";
 import { useParams } from "next/navigation";
@@ -9,10 +11,8 @@ import React from "react";
 
 const Page = async ({ params }: any) => {
   const { userId } = auth();
-
-  const result = await getBlogById({ blogId: params.id });
-
-  //   console.log(result);
+  const tagId = params.id;
+  const result = await getBlogsByTagIdParams(tagId);
   return (
     <>
       <div className="flex w-full flex-col-reverse justify-between gap-4 sm:flex-row sm:items-center">

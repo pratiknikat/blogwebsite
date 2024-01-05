@@ -12,7 +12,7 @@ import Link from "next/link";
 import React from "react";
 
 export const metadata: Metadata = {
-  title: "Question | Dev Overflow",
+  title: "Blog | Medium ",
   description:
     "View the question details and corresponding answers on Dev Overflow - A community-driven platform for asking and answering programming questions. Get help, share knowledge and collaborate with developers from around the world. Explore topics in web developments, mobile app development, algorithms, data structures and more...",
 };
@@ -27,7 +27,6 @@ const Page = async ({ params, searchParams }: any) => {
   }
 
   const result = await getBlogById({ blogId: params.id });
-
   return (
     <>
       <div className="flex-start w-full flex-col">
@@ -38,16 +37,17 @@ const Page = async ({ params, searchParams }: any) => {
             className="flex items-center justify-start gap-1"
           >
             <Image
-              src={""}
-              // src={result.author.picture}
+              src={
+                "https://images.ctfassets.net/h6goo9gw1hh6/2sNZtFAWOdP1lmQ33VwRN3/24e953b920a9cd0ff2e1d587742a2472/1-intro-photo-final.jpg?w=1200&h=992&fl=progressive&q=70&fm=jpg"
+              }
               className="rounded-full"
-              width={22}
-              height={22}
+              width={70}
+              height={70}
               alt="profile"
             />
-            {/* <p className="paragraph-semibold text-dark300_light700">
-              {result.author.name}
-            </p> */}
+            <p className="paragraph-semibold text-dark300_light700">
+              Pratik Nikat
+            </p>
           </Link>
           <div className="flex justify-end">
             {/* <Votes
@@ -87,17 +87,6 @@ const Page = async ({ params, searchParams }: any) => {
       </div>
 
       <ParseHTML data={result.content} />
-
-      <div className="mt-8 flex flex-wrap gap-2">
-        {result.tags.map((tag: any) => (
-          <RenderTag
-            key={tag._id}
-            _id={tag._id}
-            name={tag.name}
-            showCount={false}
-          />
-        ))}
-      </div>
     </>
   );
 };

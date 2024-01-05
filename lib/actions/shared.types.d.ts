@@ -100,9 +100,9 @@ export interface GetAllTagsParams {
 
 export interface GetBlogsByTagIdParams {
   tagId: string;
-  page?: number;
-  pageSize?: number;
-  searchQuery?: string;
+  // page?: number;
+  // pageSize?: number;
+  // searchQuery?: string;
 }
 
 export interface GetTopInteractedTagsParams {

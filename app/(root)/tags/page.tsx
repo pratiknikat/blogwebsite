@@ -1,10 +1,6 @@
 import Filter from "@/components/shared/Filter";
 import NoResult from "@/components/shared/NoResult";
-import {
-  FILTER_SEARCH_PARAMS_KEY,
-  PAGE_NUMBER_SEARCH_PARAMS_KEY,
-  QUERY_SEARCH_PARAMS_KEY,
-} from "@/constants";
+
 import { TagFilters } from "@/constants/filters";
 import { getAllTags } from "@/lib/actions/tag.action";
 import { SearchParamsProps } from "@/types";
@@ -12,14 +8,13 @@ import { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Tags | Dev Overflow",
+  title: "Tags | Medium ",
   description:
-    "View the tags used on Dev Overflow - A community-driven platform for asking and answering programming questions. Get help, share knowledge and collaborate with developers from around the world. Explore topics in web developments, mobile app development, algorithms, data structures and more...",
+    "View the tags used on Dev Overflow - A community-driven platform for asking and answering programming blogs. Get help, share knowledge and collaborate with developers from around the world. Explore topics in web developments, mobile app development, algorithms, data structures and more...",
 };
 
 const Page = async ({ searchParams }: SearchParamsProps) => {
   const result = await getAllTags({});
-  // console.log(result);
 
   return (
     <>
@@ -46,7 +41,7 @@ const Page = async ({ searchParams }: SearchParamsProps) => {
                 </div>
                 <p className="small-medium text-dark400_light500 mt-3.5">
                   <span className="body-semibold primary-text-gradient mr-2.5">
-                    {tag?.questions?.length}+
+                    {tag?.blogs?.length} +
                   </span>{" "}
                   Blogs
                 </p>
@@ -57,7 +52,7 @@ const Page = async ({ searchParams }: SearchParamsProps) => {
           <NoResult
             title="No Tags Found"
             description="It looks like no tags are found."
-            link="/ask-question"
+            link="/write-blog"
             linkTitle="Write a Blog"
           />
         )}

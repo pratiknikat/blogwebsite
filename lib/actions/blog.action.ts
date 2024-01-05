@@ -76,11 +76,12 @@ export async function getBlogById(params: GetBlogByIdParams) {
     connectToDatabase();
     const { blogId } = params;
     // const blog = await Blog.findById(blogId);
-    const blog = await Blog.find({ blogId: blogId }).populate({
-      path: "tags",
-      model: Tag,
-      select: "_id name",
-    });
+    const blog = await Blog.findById(blogId);
+    // .populate({
+    //   path: "tags",
+    //   model: Tag,
+    //   select: "_id name",
+    // });
     // .populate({
     //   path: "author",
     //   model: User,
