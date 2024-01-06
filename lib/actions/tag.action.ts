@@ -75,7 +75,9 @@ export async function getBlogsByTagIdParams(params: GetBlogsByTagIdParams) {
   try {
     connectToDatabase();
     const tagId = params;
+    // const blogs = await Tag.findById(tagId).populate("blogs");
     const blogs = await Tag.findById(tagId).populate("blogs");
+    return blogs;
   } catch (error) {
     console.error(error);
     throw error;

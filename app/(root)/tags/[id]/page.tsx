@@ -1,7 +1,6 @@
 import BlogCard from "@/components/cards/BlogCard";
 import NoResult from "@/components/shared/NoResult";
 import { Button } from "@/components/ui/button";
-import { getBlogById } from "@/lib/actions/blog.action";
 import { getBlogsByTagIdParams } from "@/lib/actions/tag.action";
 
 import { auth } from "@clerk/nextjs";
@@ -20,20 +19,28 @@ const Page = async ({ params }: any) => {
       </div>
 
       {/* <HomeFilters /> */}
-      {/* <div className="mt-10 flex flex-col gap-6 w-full sm:w-1/2">
-        {result.length > 0 ? (
-          result.map((blog) => (
-            <BlogCard
-              key={blog._id}
-              _id={blog._id}
-              title={blog.title}
-              tags={blog.tags}
-              // author={question.author}
-              upvotes={blog.upvotes}
-              views={blog.views}
-              createdAt={blog.createdAt}
-            />
-          ))
+      <div className="mt-10  flex justify-center flex-wrap gap-6 w-full ">
+        {result.blogs.length > 0 ? (
+          result.blogs.map(
+            (blog: {
+              _id: React.Key | null | undefined;
+              title: string;
+              tags: { _id: string; name: string }[];
+              upvotes: number;
+              views: number;
+              createdAt: Date;
+            }) => (
+              <BlogCard
+                key={String(blog._id)}
+                _id={blog._id}
+                title={blog.title}
+                tags={blog.tags}
+                upvotes={blog.upvotes}
+                views={blog.views}
+                createdAt={blog.createdAt}
+              />
+            )
+          )
         ) : (
           <NoResult
             title="There's no blog to show"
@@ -44,7 +51,7 @@ const Page = async ({ params }: any) => {
             linkTitle="Write a Blog"
           />
         )}
-      </div> */}
+      </div>
     </>
   );
 };

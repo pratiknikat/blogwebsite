@@ -45,8 +45,6 @@ export async function createBlog(params: CreateBlogParams) {
       content,
       author,
     });
-    console.log(blog);
-    // console.log('Blog created:', blog);
 
     const tagDocuments = [];
     for (const tag of tags) {

@@ -5,7 +5,7 @@ import RenderTag from "../shared/RenderTag";
 import Metric from "../shared/Metric";
 
 interface BlogProps {
-  _id: string;
+  _id: string | null | undefined | number;
   title: string;
   tags: Array<{ _id: string; name: string }>; // Fix here
   // author: {
