@@ -25,7 +25,7 @@ const Home = async () => {
       </div>
 
       {/* <HomeFilters /> */}
-      <div className="mt-10 flex flex-col gap-6 w-full sm:w-1/2">
+      <div className="mt-10  flex justify-center flex-wrap gap-6 w-full ">
         {result.length > 0 ? (
           result.map((blog) => (
             <BlogCard
