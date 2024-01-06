@@ -229,7 +229,6 @@ export async function getUserInfo(params: GetUserByIdParams) {
   try {
     connectToDatabase();
     const { userId } = params;
-    console.log(userId);
     const user = await User.findOne({ clerkId: userId });
     if (!user) {
       throw new Error("User not found");

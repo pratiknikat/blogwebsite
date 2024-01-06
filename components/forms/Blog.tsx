@@ -36,7 +36,6 @@ export function Blog({ type, mongoUserId, blogDetails }: Props) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const router = useRouter();
   const pathname = usePathname();
-  console.log(mongoUserId);
 
   const parsedblogDetails = blogDetails ? JSON.parse(blogDetails ?? "{}") : {};
 

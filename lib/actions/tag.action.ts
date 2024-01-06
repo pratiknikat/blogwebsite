@@ -46,7 +46,7 @@ export async function getTopInteractedTags(params: GetTopInteractedTagsParams) {
       name: tagName,
       count: tagFreqMap[tagName],
     }));
-    // Sort the tags by count in descending order
+
     topInteractedTags.sort((a, b) => b.count - a.count);
     return topInteractedTags
       .filter((tag) => ({
@@ -75,9 +75,7 @@ export async function getBlogsByTagIdParams(params: GetBlogsByTagIdParams) {
   try {
     connectToDatabase();
     const tagId = params;
-    console.log(tagId);
     const blogs = await Tag.findById(tagId).populate("blogs");
-    console.log(blogs);
   } catch (error) {
     console.error(error);
     throw error;

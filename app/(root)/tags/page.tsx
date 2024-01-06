@@ -15,6 +15,7 @@ export const metadata: Metadata = {
 
 const Page = async ({ searchParams }: SearchParamsProps) => {
   const result = await getAllTags({});
+  console.log(result);
 
   return (
     <>
@@ -42,7 +43,7 @@ const Page = async ({ searchParams }: SearchParamsProps) => {
                 <p className="small-medium text-dark400_light500 mt-3.5">
                   <span className="body-semibold primary-text-gradient mr-2.5">
                     {tag?.blogs?.length} +
-                  </span>{" "}
+                  </span>
                   Blogs
                 </p>
               </article>
